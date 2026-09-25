@@ -6,7 +6,13 @@
 
 Jeg har opbygget et isoleret Windows-lab med en domænecontroller og en klient. Afleveringen viser opsætning, sikkerhedsvalg og resultater fra netværk og Active Directory til automatisering og analyse af sikkerhedslogs.
 
-[Moduler](#moduler) · [Billedbeviser](evidence/README.md) · [PowerShell-script](scripts/README.md)
+[Arkitektur](#arkitektur) · [Moduler](#moduler) · [Billedbeviser](evidence/README.md) · [PowerShell-script](scripts/README.md)
+
+## Arkitektur
+
+![Arkitekturdiagram for SecureBase Windows](assets/architecture/securebase-windows-architecture.png)
+
+Diagrammet viser det isolerede VirtualBox-lab, domænestrukturen, de centrale sikkerhedspolitikker og sammenhængen mellem projektets seks moduler.
 
 ## Moduler
 
