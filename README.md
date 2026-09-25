@@ -1,42 +1,42 @@
 # SecureBase Windows
 
-**Kasper Â· Windows OS intro Â· September 2026**
+**Kasper · Windows OS intro · September 2026**
 
-## Design og drift af et lille Active Directory-miljÃ¸
+## Design og drift af et lille Active Directory-miljø
 
-Jeg har opbygget et isoleret Windows-lab med en domÃ¦necontroller og en klient. Afleveringen viser opsÃ¦tning, sikkerhedsvalg og resultater fra netvÃ¦rk og Active Directory til automatisering og analyse af sikkerhedslogs.
+Jeg har opbygget et isoleret Windows-lab med en domænecontroller og en klient. Afleveringen viser opsætning, sikkerhedsvalg og resultater fra netværk og Active Directory til automatisering og analyse af sikkerhedslogs.
 
-[Moduler](#moduler) Â· [Billedbeviser](evidence/README.md) Â· [PowerShell-script](scripts/README.md)
+[Moduler](#moduler) · [Billedbeviser](evidence/README.md) · [PowerShell-script](scripts/README.md)
 
 ## Moduler
 
 | Modul | Arbejde og dokumentation |
 |---|---|
-| [01 Â· VM og netvÃ¦rk](docs/01-vm-netvaerk.md) | Isoleret labnet, IP-plan, hostnames og forbindelsestest |
-| [02 Â· Active Directory](docs/02-active-directory.md) | DomÃ¦ne, OU-struktur, brugere, grupper og klienttilknytning |
-| [03 Â· Group Policy](docs/03-group-policy.md) | Password- og lockout-politik samt en mÃ¥lrettet brugerpolitik |
-| [04 Â· PowerShell](docs/04-powershell.md) | Kommenteret script, brugeroprettelse og verificeret genkÃ¸rsel |
-| [05 Â· Registry Editor](docs/05-registry.md) | To sikkerhedsÃ¦ndringer med fÃ¸r/efter-kontrol og tilbagefÃ¸rsel |
-| [06 Â· Event Viewer](docs/06-event-viewer.md) | Central audit, hÃ¦ndelsesanalyse og overvÃ¥gningsbegrundelser |
+| [01 · VM og netværk](docs/01-vm-netvaerk.md) | Isoleret labnet, IP-plan, hostnames og forbindelsestest |
+| [02 · Active Directory](docs/02-active-directory.md) | Domæne, OU-struktur, brugere, grupper og klienttilknytning |
+| [03 · Group Policy](docs/03-group-policy.md) | Password- og lockout-politik samt en målrettet brugerpolitik |
+| [04 · PowerShell](docs/04-powershell.md) | Kommenteret script, brugeroprettelse og verificeret genkørsel |
+| [05 · Registry Editor](docs/05-registry.md) | To sikkerhedsændringer med før/efter-kontrol og tilbageførsel |
+| [06 · Event Viewer](docs/06-event-viewer.md) | Central audit, hændelsesanalyse og overvågningsbegrundelser |
 
-## LabmiljÃ¸
+## Labmiljø
 
 | Maskine | System og funktion | IPv4 |
 |---|---|---|
-| **DC01** | Windows Server 2025 Standard Evaluation Â· AD DS, DNS og Global Catalog | `192.168.50.10/24` |
-| **CLIENT01** | Windows 11 Enterprise Evaluation Â· domÃ¦neklient | `192.168.50.20/24` |
+| **DC01** | Windows Server 2025 Standard Evaluation · AD DS, DNS og Global Catalog | `192.168.50.10/24` |
+| **CLIENT01** | Windows 11 Enterprise Evaluation · domæneklient | `192.168.50.20/24` |
 
-**DomÃ¦ne:** `securebase.local` Â· **NetBIOS:** `SECUREBASE`
-**NetvÃ¦rk:** VirtualBox Internal Network Â· `labnet-khr`
+**Domæne:** `securebase.local` · **NetBIOS:** `SECUREBASE`
+**Netværk:** VirtualBox Internal Network · `labnet-khr`
 
 ## Dokumentation og kode
 
-Hvert modul samler fremgangsmÃ¥de, sikkerhedsbegrundelser og testresultater. De centrale screenshots vises i teksten; alle **85 billedbeviser** kan Ã¥bnes fra de tilhÃ¸rende oversigter.
+Hvert modul samler fremgangsmåde, sikkerhedsbegrundelser og testresultater. De centrale screenshots vises i teksten; alle **85 billedbeviser** kan åbnes fra de tilhørende oversigter.
 
-[Se alle billedbeviser â†’](evidence/README.md)
-[LÃ¦s scriptet og kÃ¸rselsvejledningen â†’](scripts/README.md)
-[Se Event ID-oversigten â†’](docs/06-event-viewer.md#event-id-oversigt)
+[Se alle billedbeviser →](evidence/README.md)
+[Læs scriptet og kørselsvejledningen →](scripts/README.md)
+[Se Event ID-oversigten →](docs/06-event-viewer.md#event-id-oversigt)
 
 ---
 
-*SecureBase Windows Â· Afleveringsudgave 1.1*
+*SecureBase Windows · Afleveringsudgave 1.1*
