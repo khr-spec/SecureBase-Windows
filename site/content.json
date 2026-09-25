@@ -1,0 +1,20 @@
+{
+  "title": "SecureBase Windows",
+  "repository": "https://github.com/khr-spec/SecureBase-Windows",
+  "site_url": "https://khr-spec.github.io/SecureBase-Windows/",
+  "period": "September 2026",
+  "architecture": "assets/architecture/securebase-windows-architecture.png",
+  "modules": [
+    {"id": 1, "key": "01-vm-netvaerk", "title": "VM og netværk", "category": "Fundament", "summary": "Et isoleret lab med faste adresser, korrekte hostnames og dokumenteret forbindelse mellem to virtuelle maskiner.", "result": "4/4 pingsvar i begge retninger", "tags": ["VirtualBox", "IPv4", "Netværksisolation"], "machine": "DC01 + CLIENT01", "proof": "03-dc01-ping-og-oprydning.png"},
+    {"id": 2, "key": "02-active-directory", "title": "Active Directory", "category": "Identitet", "summary": "Domænecontroller, DNS, afdelings-OU’er og sikkerhedsgrupper. Klienten er tilknyttet domænet med verificeret brugerlogin.", "result": "Domænelogin som SECUREBASE\\ejensen", "tags": ["AD DS", "DNS", "OU’er og grupper"], "machine": "DC01 + CLIENT01", "proof": "19-domain-login-verification.png"},
+    {"id": 3, "key": "03-group-policy", "title": "Group Policy", "category": "Central styring", "summary": "En domænepolitik for passwords og kontolåsning samt en målrettet IT-brugerpolitik med en synlig effekt på klienten.", "result": "12 tegn · 5 fejlforsøg · 15 minutter", "tags": ["GPO", "gpresult", "Politikprioritet"], "machine": "DC01 + CLIENT01", "proof": "09-effective-domain-password-policy.png"},
+    {"id": 4, "key": "04-powershell", "title": "PowerShell", "category": "Automatisering", "summary": "Et kommenteret script opretter Support-afdelingen, tre brugere og en gruppe. Genkørsel er testet uden nye dubletter.", "result": "1 OU + 3 brugere + 1 gruppe", "tags": ["PowerShell", "AD-objekter", "Genkørsel"], "machine": "DC01", "proof": "05-second-script-run.png"},
+    {"id": 5, "key": "05-registry", "title": "Registry Editor", "category": "Klientsikkerhed", "summary": "To afgrænsede registry-ændringer med før-/efter-eksport, en synlig logintest og dokumenteret tilbageførsel.", "result": "Slutværdier verificeret: 0xff og 0x1", "tags": ["Registry", "reg export", "Tilbageførsel"], "machine": "CLIENT01", "proof": "08-sluttilstand-og-ny-efter-eksport.png"},
+    {"id": 6, "key": "06-event-viewer", "title": "Event Viewer", "category": "Sporbarhed", "summary": "Central auditpolitik og analyse af kontrollerede login-, konto-, gruppe- og filhændelser. Testobjekterne ryddes op bagefter.", "result": "4624 · 4625 · 4720 · 4732 · 4663", "tags": ["Audit", "Event Viewer", "Hændelsesanalyse"], "machine": "DC01 + CLIENT01", "proof": "22-event-4663-readattributes.png"}
+  ],
+  "featured": [
+    {"module": 3, "file": "09-effective-domain-password-policy.png", "title": "Fra indstilling til effektiv politik", "description": "Get-ADDefaultDomainPasswordPolicy viser de faktiske værdier efter justering af GPO-prioriteten."},
+    {"module": 4, "file": "05-second-script-run.png", "title": "Samme script. Ingen nye dubletter.", "description": "Den anden kørsel finder OU, gruppe, brugere og medlemskaber som eksisterende."},
+    {"module": 6, "file": "22-event-4663-readattributes.png", "title": "En hændelse med sammenhæng", "description": "Event 4663 forbinder ejensen, test.txt og explorer.exe. Accesses viser konkret ReadAttributes."}
+  ]
+}

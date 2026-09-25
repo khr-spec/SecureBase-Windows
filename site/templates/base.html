@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0c1219">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>{{ title }}{% if title != config.title %} · {{ config.title }}{% endif %}</title>
+  <meta name="description" content="{{ description }}">
+  <link rel="canonical" href="{{ canonical }}">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="da_DK">
+  <meta property="og:site_name" content="{{ config.title }}">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:url" content="{{ canonical }}">
+  <meta property="og:image" content="{{ config.site_url }}{{ config.architecture }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="{{ root }}site-assets/favicon.svg">
+  <link rel="stylesheet" href="{{ root }}site-assets/style.css">
+  <script src="{{ root }}site-assets/site.js" defer></script>
+</head>
+<body class="{{ page_class }}">
+<a class="skip-link" href="#indhold">Spring til indhold</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="{{ root }}index.html" aria-label="SecureBase Windows, forside"><span class="brand-mark" aria-hidden="true">S<span>_</span></span><span>SecureBase <small>WINDOWS LAB</small></span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation" hidden>Menu <span aria-hidden="true">☰</span></button>
+    <nav id="main-navigation" aria-label="Hovednavigation">
+      <a href="{{ root }}index.html" {% if page_class == 'home-page' %}aria-current="page"{% endif %}>Overblik</a>
+      <a href="{{ root }}index.html#moduler" {% if page_class == 'module-page' %}aria-current="true"{% endif %}>Moduler</a>
+      <a href="{{ root }}beviser/index.html" {% if page_class == 'gallery-page' %}aria-current="page"{% endif %}>Billedbeviser</a>
+      <a href="{{ root }}kode/index.html" {% if page_class == 'code-page' %}aria-current="page"{% endif %}>Kode</a>
+      <a class="nav-source" href="{{ config.repository }}" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </div>
+</header>
+<main id="indhold" tabindex="-1">{% block content %}{% endblock %}</main>
+<footer class="site-footer">
+  <div class="wrap footer-main"><a class="brand" href="{{ root }}index.html"><span class="brand-mark" aria-hidden="true">S<span>_</span></span><span>SecureBase <small>WINDOWS LAB</small></span></a><p>Windows OS intro · September 2026<br><span>Opsætning, sikkerhedsvalg og dokumenterede resultater.</span></p><a href="{{ config.repository }}" target="_blank" rel="noopener noreferrer">Se hele projektet på GitHub <span aria-hidden="true">↗</span></a></div>
+  <div class="wrap footer-bottom"><span>Et isoleret undervisningslab. Dokumentation fra testforløbet, ikke live-status.</span><a href="#indhold">Til toppen ↑</a></div>
+</footer>
+<dialog class="lightbox" id="image-dialog" aria-labelledby="lightbox-title">
+  <div class="lightbox-header"><p id="lightbox-title">Billedbevis</p><div><a id="lightbox-original" href="#" target="_blank" rel="noopener noreferrer">Åbn original ↗</a><button type="button" class="lightbox-zoom" aria-pressed="false">Zoom</button><button type="button" class="lightbox-close" aria-label="Luk billedvisning">Luk ×</button></div></div>
+  <div class="lightbox-stage"><img id="lightbox-image" alt=""></div>
+  <p class="lightbox-tip">Esc lukker · Åbn original for fuld opløsning</p>
+</dialog>
+<div class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

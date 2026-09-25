@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="wrap doc-layout">
+  <aside class="doc-sidebar"><a class="back-link" href="{{ root }}index.html">← Projektoverblik</a><p class="small-label">DOKUMENTATION</p><nav aria-label="Moduler">{% for m in modules %}<a href="{{ root }}moduler/{{ m.key }}.html" {% if module and module.id == m.id %}aria-current="page"{% endif %}><span>{{ '%02d'|format(m.id) }}</span>{{ m.title }}</a>{% endfor %}<a href="{{ root }}kode/index.html" {% if page_class == 'code-page' %}aria-current="page"{% endif %}><span>&gt;_</span>PowerShell-script</a></nav><div class="sidebar-foot"><a href="{{ root }}beviser/index.html{% if module %}?modul={{ module.id }}{% endif %}">Åbn billedbeviser ↗</a><a href="{{ source_url }}" target="_blank" rel="noopener noreferrer">Læs kilden på GitHub ↗</a></div></aside>
+  <div class="doc-main">
+    <header class="doc-header"><p class="eyebrow">{% if module %}MODUL {{ '%02d'|format(module.id) }} / {{ module.category|upper }}{% else %}KODE / AUTOMATISERING{% endif %}</p><h1>{{ title }}</h1><p class="doc-lead">{{ description }}</p><div class="doc-meta"><span>{% if module %}{{ module.machine }}{% else %}DC01{% endif %}</span><span>{{ reading_minutes }} min. læsning</span>{% if module %}<a href="{{ root }}beviser/index.html?modul={{ module.id }}">{{ module.count }} billedbeviser ↗</a>{% else %}<a href="{{ root }}scripts/New-SecureBaseSupport.ps1" download>Hent .ps1-filen ↓</a>{% endif %}</div></header>
+    <details class="mobile-toc"><summary>På denne side</summary><nav aria-label="Indholdsfortegnelse, mobil">{% for h in toc %}<a href="#{{ h.id }}">{{ h.text }}</a>{% endfor %}</nav></details>
+    <article class="prose">{{ body|safe }}</article>
+    <nav class="chapter-nav" aria-label="Forrige og næste modul">{% if previous %}<a href="{{ root }}moduler/{{ previous.key }}.html"><span>← FORRIGE MODUL</span><strong>{{ previous.title }}</strong></a>{% else %}<a href="{{ root }}index.html"><span>← TILBAGE</span><strong>Projektoverblik</strong></a>{% endif %}{% if next %}<a href="{{ root }}moduler/{{ next.key }}.html"><span>NÆSTE MODUL →</span><strong>{{ next.title }}</strong></a>{% else %}<a href="{{ root }}beviser/index.html"><span>UDFORSK VIDERE →</span><strong>Alle billedbeviser</strong></a>{% endif %}</nav>
+  </div>
+  <aside class="toc-sidebar"><p class="small-label">PÅ DENNE SIDE</p><nav aria-label="Indholdsfortegnelse">{% for h in toc %}<a href="#{{ h.id }}">{{ h.text }}</a>{% endfor %}</nav></aside>
+</div>
+{% endblock %}
