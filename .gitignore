@@ -1,0 +1,10 @@
+﻿.obsidian/
+.trash/
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
+*.tmp
+secrets/
+*.secret
+*.password.txt
