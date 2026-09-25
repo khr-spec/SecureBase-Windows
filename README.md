@@ -1,6 +1,6 @@
 # SecureBase Windows
 
-**Kasper · Windows OS intro · September 2026**
+**Windows OS intro · September 2026**
 
 ## Design og drift af et lille Active Directory-miljø
 
