@@ -6,7 +6,13 @@
 
 Jeg har opbygget et isoleret Windows-lab med en domænecontroller og en klient. Afleveringen viser opsætning, sikkerhedsvalg og resultater fra netværk og Active Directory til automatisering og analyse af sikkerhedslogs.
 
-[Live portfolio](https://khr-spec.github.io/SecureBase-Windows/) · [Arkitektur](#arkitektur) · [Moduler](#moduler) · [Billedbeviser](evidence/README.md) · [PowerShell-script](scripts/README.md)
+> **Visuel aflevering**
+>
+> [Åbn den visuelle aflevering →](https://khr-spec.github.io/SecureBase-Windows/)
+>
+> Interaktiv præsentation af labarkitekturen, projektets seks moduler og udvalgte tekniske resultater.
+
+[Arkitektur](#arkitektur) · [Moduler](#moduler) · [Billedbeviser](evidence/README.md) · [PowerShell-script](scripts/README.md)
 
 ## Arkitektur
 
