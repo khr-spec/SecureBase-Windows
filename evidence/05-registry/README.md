@@ -4,7 +4,7 @@
 
 **8 screenshots · Registry Editor · CLIENT01**
 
-Klik på et billedlink for originalen. Billederne er bevaret uændret og følger forløbet fra før-tilstand til den afsluttende genoprettelse.
+Billederne følger ændringerne fra før-tilstand til genoprettet hærdning.
 
 | Nr. | Dokumenterer | Billede |
 |---|---|---|
@@ -17,11 +17,7 @@ Klik på et billedlink for originalen. Billederne er bevaret uændret og følger
 | 07 | Rollback-kommandoerne udføres og melder succes | [Åbn 07](07-rollback-kommandoer.png) |
 | 08 | Hærdningen genskabes; 0xff og 0x1 verificeres; after-policies.reg opdateres | [Åbn 08](08-sluttilstand-og-ny-efter-eksport.png) |
 
-## Eksporter og sluttilstand
-
-`before-policies.reg` og `after-policies.reg` er dokumenteret på CLIENT01 i `C:\SecureBaseRegistry`. De originale eksportfiler er ikke vedlagt vaulten; deres oprettelse og de relevante værdier vises i billederne.
-
-Billede 07 viser udført rollback, ikke sluttilstanden. Billede 08 viser genoprettelsen og den endelige kontrol: **NoDriveTypeAutoRun = 0xff** og **DontDisplayLastUserName = 0x1**.
+Billede 07 viser tilbageførsel; billede 08 viser slutkontrollen med **0xff og 0x1**. Eksportkommandoerne er dokumenteret i billede 02, 05 og 08.
 
 ---
 

@@ -2,33 +2,31 @@
 
 [Overblik](../README.md) · [Modul 4](../docs/04-powershell.md) · [Kørselsbeviser](../evidence/04-powershell/README.md)
 
-> **New-SecureBaseSupport.ps1** · Afprøvet på DC01 i Modul 4
+## New-SecureBaseSupport.ps1
 
-## Formål og forudsætninger
+Scriptet opretter Support-OU’en, `GG_Support_Users` og brugerne `nhansen`, `omadsen` og `fthomsen`. Det kontrollerer eksisterende objekter og gruppemedlemskaber før oprettelse eller tilføjelse.
 
-Scriptet opretter en Support-OU, den globale sikkerhedsgruppe `GG_Support_Users` og tre brugere: `nhansen`, `omadsen` og `fthomsen`. Brugerne tilføjes til gruppen. Eksisterende objekter og medlemskaber kontrolleres før oprettelse eller tilføjelse.
+[Åbn selve .ps1-filen →](New-SecureBaseSupport.ps1)
 
-Det blev kørt på DC01 med administratorrettigheder. ActiveDirectory-modulet og OU’erne `SecureBase` og `Groups` skal allerede findes. Filen nedenfor er uændret fra den dokumenterede første- og genkørsel.
+## Forudsætninger og kørsel
 
-## Sådan køres scriptet
+**Maskine:** DC01. **Forudsætninger:** ActiveDirectory-modulet, oprettelsesrettigheder og de eksisterende OU’er `SecureBase` og `Groups`.
 
-Kørslen i labbet brugte denne placering:
-
-```powershell
-& "C:\SecureBaseScripts\New-SecureBaseSupport.ps1"
-```
-
-Når filen i stedet ligger i denne mappe, kan den køres fra vault-roden på DC01:
+Fra projektroden på DC01:
 
 ```powershell
 & ".\scripts\New-SecureBaseSupport.ps1"
 ```
 
-Den første kommando er den dokumenterede VM-kørsel. Den anden viser den tilsvarende relative sti i pakken. Scriptet skal ikke køres på Windows-værten for at læse dokumentationen.
+I den dokumenterede VM-test lå filen i `C:\SecureBaseScripts`:
 
-Passwordet indtastes interaktivt som SecureString og skal opfylde domænets politik. Det gemmes ikke i scriptfilen. Scriptet spørger også ved genkørsel, men ændrer ikke et eksisterende brugerpassword i den viste kodevej.
+```powershell
+& "C:\SecureBaseScripts\New-SecureBaseSupport.ps1"
+```
 
-## Sådan kontrolleres resultatet
+Det midlertidige password indtastes skjult og skal opfylde domænets politik. Det gemmes ikke i scriptet. Ved genkørsel spørges der igen, men eksisterende passwords ændres ikke af den viste kode.
+
+## Kontrol af resultatet
 
 ```powershell
 Get-ADUser `
@@ -40,11 +38,11 @@ Get-ADGroupMember "GG_Support_Users" |
 Select-Object Name,SamAccountName
 ```
 
-De dokumenterede resultater og genkørslen findes i [Modul 4](../docs/04-powershell.md). Testen dækker det viste labforløb, ikke alle fejl- eller gendannelsesscenarier.
+[Første kørsel, resultat og genkørsel er dokumenteret i Modul 4](../docs/04-powershell.md#dokumentation--bevis).
 
-## Kildekode
+## Fuld kommenteret kildekode
 
-Læsbar gengivelse af [den faktiske scriptfil](New-SecureBaseSupport.ps1). Det er `.ps1`-filen, der køres.
+Den følgende gengivelse svarer til den vedlagte `.ps1`-fil.
 
 ```powershell
 # New-SecureBaseSupport.ps1
@@ -179,4 +177,4 @@ Write-Host "SecureBase Support setup completed."
 
 ---
 
-[← Til Modul 4](../docs/04-powershell.md) · [Til overblikket](../README.md)
+[← Modul 4](../docs/04-powershell.md) · [Overblik](../README.md)

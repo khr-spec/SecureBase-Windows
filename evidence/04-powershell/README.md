@@ -4,7 +4,7 @@
 
 **7 screenshots · PowerShell**
 
-Klik på et billedlink for originalen. Filernes indhold er bevaret fra den foregående vault.
+Billederne følger modulets arbejdsgang. Vælg et link for at åbne originalen.
 
 | Nr. | Dokumenterer | Billede |
 |---|---|---|

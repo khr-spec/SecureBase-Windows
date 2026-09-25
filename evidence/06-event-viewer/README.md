@@ -4,7 +4,7 @@
 
 **26 screenshots · Event Viewer og logning · 25. september 2026**
 
-Alle billeder er kopieret uændret. Mellemtrin og supplerende observationer er markeret, så de ikke forveksles med sluttilstanden.
+Billederne er samlet efter konfiguration, hændelsestype og oprydning.
 
 ## GPO og effektiv audit
 
@@ -56,12 +56,6 @@ Alle billeder er kopieret uændret. Mellemtrin og supplerende observationer er m
 | 24 | IT-OU efter sletning af Audit Test; Emil Jensen er bevaret | [Åbn 24](24-oprydning-it-ou.png) |
 | 25 | Groups efter sletning af DL_Audit_Test; de fire GG-grupper er bevaret | [Åbn 25](25-oprydning-testgruppe.png) |
 | 26 | CLIENT01 · Test-Path C:\AuditTest returnerer False efter oprydning | [Åbn 26](26-oprydning-testmappe.png) |
-
-## Læs beviserne med den rigtige afgrænsning
-
-4624 viser **CachedInteractive (Type 11)**; 4663 viser **ReadAttributes (0x80)**, ikke ReadData. Det senere secure-channel-resultat ændrer ikke betydningen af den tidligere loginhændelse. Kontooprettelsens felter er et øjebliksbillede ved oprettelsen. Billede 19 viser en mappedialog undervejs, mens billede 20 viser entryen på filen.
-
-Billede 07 viser en afvigelse før genindlæsning. Billede 08 dokumenterer, at File System derefter er Success and Failure. Billede 24–26 viser oprydningen; testobjekterne er ikke en permanent del af løsningen.
 
 ---
 
